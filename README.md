@@ -54,7 +54,7 @@ Congrats! You're now authenticated and can start making API calls.
 Open the User identity folder and click Send on the GET Identity request to make your first API call.
 
 ## Discogs public API documentation
-You find more informations regarding Discogs public APIs [here](https://www.discogs.com/developers/)
+You find more informations regarding Discogs public APIs [here](https://www.discogs.com/developers/).
 
 ## Contibuting
 Contribution are very welcome 

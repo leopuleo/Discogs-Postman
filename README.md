@@ -4,9 +4,8 @@ A Postman collection for Discogs public API.
 Follow these steps to quickly get up and running with the Discogs public API and Postman:
 
 ### 1. Import the Discogs collection and environment into Postman
-Click the button below and select the Desktop version of Postman (Chrome extension doesn't support environment variables):
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ed71222b7df2030db1d2#?env%5BDiscogs%5D=W3sia2V5IjoidXJsIiwidmFsdWUiOiJodHRwczovL2FwaS5kaXNjb2dzLmNvbSIsImRlc2NyaXB0aW9uIjoiIiwiZW5hYmxlZCI6dHJ1ZX0seyJrZXkiOiJ1c2VyX2FnZW50IiwidmFsdWUiOiJQb3N0bWFuRGlzY29ncy8xLjAiLCJkZXNjcmlwdGlvbiI6IiIsImVuYWJsZWQiOnRydWV9LHsia2V5IjoiY29uc3VtZXJfa2V5IiwidmFsdWUiOiIiLCJkZXNjcmlwdGlvbiI6IiIsImVuYWJsZWQiOnRydWV9LHsia2V5IjoiY29uc3VtZXJfc2VjcmV0IiwidmFsdWUiOiIiLCJkZXNjcmlwdGlvbiI6IiIsImVuYWJsZWQiOnRydWV9LHsidmFsdWUiOiIiLCJrZXkiOiJvYXV0aF90b2tlbiIsImVuYWJsZWQiOnRydWV9LHsidmFsdWUiOiIiLCJrZXkiOiJvYXV0aF90b2tlbl9zZWNyZXQiLCJlbmFibGVkIjp0cnVlfSx7ImtleSI6Im9hdXRoX3ZlcmlmaWVyIiwidmFsdWUiOiIiLCJkZXNjcmlwdGlvbiI6IiIsImVuYWJsZWQiOnRydWV9XQ==)
+Download or clone this repository.
+Import the collection and environment files. You can choose between the version 2.0 and 2.1. 
 
 ### 2. Create a public app at https://www.discogs.com/settings/developers
 Go to the Discogs developer portal and create a public app.

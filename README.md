@@ -57,8 +57,8 @@ Open the User identity folder and click Send on the GET Identity request to make
 You find more informations regarding Discogs public APIs [here](https://www.discogs.com/developers/).
 
 ## Contibuting
-Contribution are very welcome 
-If you spot any bug, open a new issue or pull request.
+Contributions are very welcome: 
+if you spot any bug, open a new issue or pull request.
 
 ## Licence
 MIT

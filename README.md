@@ -4,8 +4,9 @@ A Postman collection for Discogs public API.
 Follow these steps to quickly get up and running with the Discogs public API and Postman:
 
 ### 1. Import the Discogs collection and environment into Postman
-Download or clone this repository.
-Import the collection and environment files. You can choose between the version 2.0 and 2.1. 
+Download or clone this repository and import the collection and environment files. 
+
+You can choose between the version 2.0 and 2.1. 
 
 ### 2. Create a public app at https://www.discogs.com/settings/developers
 Go to the Discogs developer portal and create a public app.

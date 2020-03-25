@@ -61,7 +61,7 @@ Congrats! You're now authenticated and can start making API calls.
 
 ### 8. Make your first API call!
 
-Open the User identity folder and click Send on the GET Identity request to make your first API call.
+Open the User identity folder and click Send on the GET Identity request to make your first API call. Additionally, copy and paste the `username` environment variables in Postman.
 
 ## Discogs public API documentation
 

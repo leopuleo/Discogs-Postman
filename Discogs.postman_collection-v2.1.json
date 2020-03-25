@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "15792874-7e86-4386-8352-30941e1d7d76",
+		"_postman_id": "7d9408a6-a04b-49aa-94b0-bfe85218b9d7",
 		"name": "Discogs",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -53,10 +53,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/oauth/request_token",
 							"host": [
@@ -155,16 +151,14 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Database",
 			"item": [
 				{
 					"name": "Releases",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -180,7 +174,6 @@
 								"type": "text"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/releases/{release_id}?{curr_abbr}",
 							"host": [
@@ -217,10 +210,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/releases/{release_id}/rating/{username}",
 							"host": [
@@ -259,7 +248,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/releases/{release_id}/rating/{username}",
+							"raw": "{{url}}/releases/{release_id}/rating/{{username}}",
 							"host": [
 								"{{url}}"
 							],
@@ -267,7 +256,7 @@
 								"releases",
 								"{release_id}",
 								"rating",
-								"{username}"
+								"{{username}}"
 							]
 						},
 						"description": "Updates the release’s rating for a given user. Authentication as the user is required. \n\nThe \"rating\" parameter must be sent inside a JSON object inside the request body.\n\n[https://www.discogs.com/developers/#page:database,header:database-release-rating-by-user](https://www.discogs.com/developers/#page:database,header:database-release-rating-by-user)"
@@ -295,7 +284,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/releases/{release_id}/rating/{username}",
+							"raw": "{{url}}/releases/{release_id}/rating/{{username}}",
 							"host": [
 								"{{url}}"
 							],
@@ -303,7 +292,7 @@
 								"releases",
 								"{release_id}",
 								"rating",
-								"{username}"
+								"{{username}}"
 							]
 						},
 						"description": "Deletes the release’s rating for a given user. Authentication as the user is required.\n\n[https://www.discogs.com/developers/#page:database,header:database-release-rating-by-user](https://www.discogs.com/developers/#page:database,header:database-release-rating-by-user)"
@@ -312,9 +301,6 @@
 				},
 				{
 					"name": "Community release rating",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -330,7 +316,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/releases/{release_id}/rating",
 							"host": [
@@ -348,9 +333,6 @@
 				},
 				{
 					"name": "Master release",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -366,7 +348,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/masters/{master_id}",
 							"host": [
@@ -383,9 +364,6 @@
 				},
 				{
 					"name": "Master release versions",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -401,7 +379,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/masters/{master_id}/versions?page={page}&per_page={per_page}",
 							"host": [
@@ -429,9 +406,6 @@
 				},
 				{
 					"name": "Artist",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -447,7 +421,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/artists/{artist_id}",
 							"host": [
@@ -464,9 +437,6 @@
 				},
 				{
 					"name": "Artist releases",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -482,7 +452,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/artists/21262/releases?sort={sort}&sort_order={sort_order}",
 							"host": [
@@ -510,9 +479,6 @@
 				},
 				{
 					"name": "Label",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -528,7 +494,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/labels/{label_id}",
 							"host": [
@@ -545,9 +510,6 @@
 				},
 				{
 					"name": "All label releases",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -563,7 +525,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/labels/{label_id}/releases?page={page}&per_page={per_page}",
 							"host": [
@@ -591,9 +552,6 @@
 				},
 				{
 					"name": "Search",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -609,7 +567,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/database/search?query={page}&type={type}",
 							"host": [
@@ -657,16 +614,14 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Marketplace",
 			"item": [
 				{
 					"name": "Inventory",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -682,15 +637,14 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
-							"raw": "{{url}}/users/{username}/inventory?string={status}&sort={sort}&sort_order={sort_order}",
+							"raw": "{{url}}/users/{{username}}/inventory?string={status}&sort={sort}&sort_order={sort_order}",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"{username}",
+								"{{username}}",
 								"inventory"
 							],
 							"query": [
@@ -714,9 +668,6 @@
 				},
 				{
 					"name": "Listing",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -732,7 +683,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/marketplace/listings/{listing_id}?curr_abbr={curr_abbr}",
 							"host": [
@@ -771,7 +721,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/marketplace/listings/{listing_id}?release_id={release_id}&condition={condition}&sleeve_condition={sleeve_condition}&price={price}&comments={comments}&allow_offers={allow_offers}&status={status}&external_id={external_id}&location={location}&weight={weight}&format_quantity={format_quantity}",
 							"host": [
@@ -861,7 +810,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/marketplace/listings/{listing_id}?curr_abbr={curr_abbr}",
 							"host": [
@@ -900,7 +848,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/marketplace/listings?release_id={release_id}&condition={condition}&sleeve_condition={sleeve_condition}&price={price}&comments={comments}&allow_offers={allow_offers}&status={status}&external_id={external_id}&location={location}&weight={weight}&format_quantity={format_quantity}",
 							"host": [
@@ -974,9 +921,6 @@
 				},
 				{
 					"name": "Order",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -992,7 +936,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/marketplace/orders/{order_id}",
 							"host": [
@@ -1025,7 +968,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/marketplace/orders/{order_id}?status={status}&shipping={shipping}",
 							"host": [
@@ -1055,9 +997,6 @@
 				},
 				{
 					"name": "List orders",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1073,7 +1012,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/marketplace/orders?status={status}&sort={sort}&sort_order={sort_order}",
 							"host": [
@@ -1107,9 +1045,6 @@
 				},
 				{
 					"name": "List order messages",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1125,7 +1060,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/marketplace/orders/{order_id}/messages",
 							"host": [
@@ -1159,7 +1093,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/marketplace/orders/{order_id}/messages?message={message}&status={status}",
 							"host": [
@@ -1188,9 +1121,6 @@
 				},
 				{
 					"name": "Fee",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1206,7 +1136,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/marketplace/fee/{price}",
 							"host": [
@@ -1224,9 +1153,6 @@
 				},
 				{
 					"name": "Fee with currency",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1242,7 +1168,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/marketplace/fee/{price}/{currency}",
 							"host": [
@@ -1261,9 +1186,6 @@
 				},
 				{
 					"name": "Price suggestions",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1279,7 +1201,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/marketplace/price_suggestions/{release_id}",
 							"host": [
@@ -1318,7 +1239,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Inventory Export",
@@ -1397,10 +1319,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/inventory/export",
 							"host": [
@@ -1443,10 +1361,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/inventory/export/{id}",
 							"host": [
@@ -1490,10 +1404,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/inventory/export/{id}/download",
 							"host": [
@@ -1533,7 +1443,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Inventory Upload",
@@ -1707,10 +1618,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/inventory/upload",
 							"host": [
@@ -1753,10 +1660,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/inventory/upload/{id}",
 							"host": [
@@ -1795,7 +1698,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "User identity",
@@ -1828,10 +1732,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/oauth/identity",
 							"host": [
@@ -1874,18 +1774,14 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "{{url}}/users/{username}",
+							"raw": "{{url}}/users/{{username}}",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"{username}"
+								"{{username}}"
 							]
 						},
 						"description": "Retrieve a user by username.\n\nIf authenticated as the requested user, the email key will be visible, and the num_list count will include the user’s private lists.\n\nIf authenticated as the requested user or the user’s collection/wantlist is public, the num_collection / num_wantlist keys will be visible.\n\n[https://www.discogs.com/developers/#page:user-identity,header:user-identity-profile](https://www.discogs.com/developers/#page:user-identity,header:user-identity-profile)"
@@ -1926,13 +1822,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/users/{username}",
+							"raw": "{{url}}/users/{{username}}",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"{username}"
+								"{{username}}"
 							]
 						},
 						"description": "Edit a user’s profile data. Authentication as the user is required. Parameters must be filled in a json object inside the body. \n\n[https://www.discogs.com/developers/#page:user-identity,header:user-identity-profile](https://www.discogs.com/developers/#page:user-identity,header:user-identity-profile)"
@@ -1967,18 +1863,14 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "{{url}}/users/{username}/submissions",
+							"raw": "{{url}}/users/{{username}}/submissions",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"{username}",
+								"{{username}}",
 								"submissions"
 							]
 						},
@@ -2014,18 +1906,14 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "{{url}}/users/{username}/contributions",
+							"raw": "{{url}}/users/{{username}}/contributions",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"{username}",
+								"{{username}}",
 								"contributions"
 							]
 						},
@@ -2056,7 +1944,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "User Collection",
@@ -2089,18 +1978,14 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "{{url}}/users/{username}/collection/folders",
+							"raw": "{{url}}/users/{{username}}/collection/folders",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"{username}",
+								"{{username}}",
 								"collection",
 								"folders"
 							]
@@ -2143,13 +2028,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/users/{username}/collection/folders",
+							"raw": "{{url}}/users/{{username}}/collection/folders",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"{username}",
+								"{{username}}",
 								"collection",
 								"folders"
 							]
@@ -2186,18 +2071,14 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "{{url}}/users/{username}/collection/folders/{folder_id}",
+							"raw": "{{url}}/users/{{username}}/collection/folders/{folder_id}",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"{username}",
+								"{{username}}",
 								"collection",
 								"folders",
 								"{folder_id}"
@@ -2240,13 +2121,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/users/{username}/collection/folders/{folder_id}",
+							"raw": "{{url}}/users/{{username}}/collection/folders/{folder_id}",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"{username}",
+								"{{username}}",
 								"collection",
 								"folders",
 								"{folder_id}"
@@ -2289,13 +2170,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/users/{username}/collection/folders/{folder_id}",
+							"raw": "{{url}}/users/{{username}}/collection/folders/{folder_id}",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"{username}",
+								"{{username}}",
 								"collection",
 								"folders",
 								"{folder_id}"
@@ -2333,18 +2214,14 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "{{url}}/users/{username}/collection/releases/{release_id}",
+							"raw": "{{url}}/users/{{username}}/collection/releases/{release_id}",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"{username}",
+								"{{username}}",
 								"collection",
 								"releases",
 								"{release_id}"
@@ -2382,18 +2259,14 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "{{url}}/users/{username}/collection/folders/{folder_id}/releases?sort={sort}&sort_order={sort_order}",
+							"raw": "{{url}}/users/{{username}}/collection/folders/{folder_id}/releases?sort={sort}&sort_order={sort_order}",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"{username}",
+								"{{username}}",
 								"collection",
 								"folders",
 								"{folder_id}",
@@ -2449,13 +2322,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/users/{username}/collection/folders/{folder_id}/releases/{release_id}",
+							"raw": "{{url}}/users/{{username}}/collection/folders/{folder_id}/releases/{release_id}",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"{username}",
+								"{{username}}",
 								"collection",
 								"folders",
 								"{folder_id}",
@@ -2500,13 +2373,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/users/{username}/collection/folders/{folder_id}/releases/{release_id}/instances/{instance_id}",
+							"raw": "{{url}}/users/{{username}}/collection/folders/{folder_id}/releases/{release_id}/instances/{instance_id}",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"{username}",
+								"{{username}}",
 								"collection",
 								"folders",
 								"{folder_id}",
@@ -2553,13 +2426,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/users/{username}/collection/folders/{folder_id}/releases/{release_id}/instances/{instance_id}",
+							"raw": "{{url}}/users/{{username}}/collection/folders/{folder_id}/releases/{release_id}/instances/{instance_id}",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"{username}",
+								"{{username}}",
 								"collection",
 								"folders",
 								"{folder_id}",
@@ -2601,18 +2474,14 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "{{url}}/users/{username}/collection/folders/{folder_id}",
+							"raw": "{{url}}/users/{{username}}/collection/folders/{folder_id}",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"{username}",
+								"{{username}}",
 								"collection",
 								"folders",
 								"{folder_id}"
@@ -2655,13 +2524,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/users/{username}/collection/folders/{folder_id}/releases/{release_id}/instances/{instance_id}/fields/{field_id}{?value}",
+							"raw": "{{url}}/users/{{username}}/collection/folders/{folder_id}/releases/{release_id}/instances/{instance_id}/fields/{field_id}{?value}",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"{username}",
+								"{{username}}",
 								"collection",
 								"folders",
 								"{folder_id}",
@@ -2711,18 +2580,14 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "{{url}}/users/{username}/collection/value",
+							"raw": "{{url}}/users/{{username}}/collection/value",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"{username}",
+								"{{username}}",
 								"collection",
 								"value"
 							]
@@ -2754,7 +2619,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "User Wantlist",
@@ -2787,18 +2653,14 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "{{url}}/users/{username}/wants",
+							"raw": "{{url}}/users/{{username}}/wants",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"{username}",
+								"{{username}}",
 								"wants"
 							]
 						},
@@ -2840,13 +2702,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/users/{username}/wants/{release_id}",
+							"raw": "{{url}}/users/{{username}}/wants/{release_id}",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"{username}",
+								"{{username}}",
 								"wants",
 								"{release_id}"
 							]
@@ -2889,13 +2751,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/users/{username}/wants/{release_id}",
+							"raw": "{{url}}/users/{{username}}/wants/{release_id}",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"{username}",
+								"{{username}}",
 								"wants",
 								"{release_id}"
 							]
@@ -2927,7 +2789,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "User Lists",
@@ -2960,18 +2823,14 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "{{url}}/users/{username}/lists",
+							"raw": "{{url}}/users/{{username}}/lists",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"{username}",
+								"{{username}}",
 								"lists"
 							]
 						},
@@ -3007,10 +2866,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/lists/{list_id}",
 							"host": [
@@ -3048,7 +2903,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"auth": {
@@ -3127,5 +2983,6 @@
 				]
 			}
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }

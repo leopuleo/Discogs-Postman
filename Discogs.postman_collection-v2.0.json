@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "15792874-7e86-4386-8352-30941e1d7d76",
+		"_postman_id": "7d9408a6-a04b-49aa-94b0-bfe85218b9d7",
 		"name": "Discogs",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -53,10 +53,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": "{{url}}/oauth/request_token",
 						"description": "Generate the request token.\n\n[https://www.discogs.com/developers/#page:authentication,header:authentication-request-token-url](https://www.discogs.com/developers/#page:authentication,header:authentication-request-token-url)"
 					},
@@ -137,16 +133,14 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Database",
 			"item": [
 				{
 					"name": "Releases",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -162,7 +156,6 @@
 								"type": "text"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/releases/{release_id}?{curr_abbr}",
 							"host": [
@@ -199,10 +192,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": "{{url}}/releases/{release_id}/rating/{username}",
 						"description": "Retrieves the release’s rating for a given user.\n\n[https://www.discogs.com/developers/#page:database,header:database-release-rating-by-user](https://www.discogs.com/developers/#page:database,header:database-release-rating-by-user)"
 					},
@@ -229,7 +218,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"url": "{{url}}/releases/{release_id}/rating/{username}",
+						"url": "{{url}}/releases/{release_id}/rating/{{username}}",
 						"description": "Updates the release’s rating for a given user. Authentication as the user is required. \n\nThe \"rating\" parameter must be sent inside a JSON object inside the request body.\n\n[https://www.discogs.com/developers/#page:database,header:database-release-rating-by-user](https://www.discogs.com/developers/#page:database,header:database-release-rating-by-user)"
 					},
 					"response": []
@@ -254,16 +243,13 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"url": "{{url}}/releases/{release_id}/rating/{username}",
+						"url": "{{url}}/releases/{release_id}/rating/{{username}}",
 						"description": "Deletes the release’s rating for a given user. Authentication as the user is required.\n\n[https://www.discogs.com/developers/#page:database,header:database-release-rating-by-user](https://www.discogs.com/developers/#page:database,header:database-release-rating-by-user)"
 					},
 					"response": []
 				},
 				{
 					"name": "Community release rating",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -279,7 +265,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": "{{url}}/releases/{release_id}/rating",
 						"description": "The Community Release Rating endpoint retrieves the average rating and the total number of user ratings for a given release.\n\n[https://www.discogs.com/developers/#page:database,header:database-community-release-rating](https://www.discogs.com/developers/#page:database,header:database-community-release-rating)"
 					},
@@ -287,9 +272,6 @@
 				},
 				{
 					"name": "Master release",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -305,7 +287,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": "{{url}}/masters/{master_id}",
 						"description": "The Master resource represents a set of similar Releases. Masters (also known as “master releases”) have a “main release” which is often the chronologically earliest.\n\n[https://www.discogs.com/developers/#page:database,header:database-master-release](https://www.discogs.com/developers/#page:database,header:database-master-release)"
 					},
@@ -313,9 +294,6 @@
 				},
 				{
 					"name": "Master release versions",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -331,7 +309,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/masters/{master_id}/versions?page={page}&per_page={per_page}",
 							"host": [
@@ -359,9 +336,6 @@
 				},
 				{
 					"name": "Artist",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -377,7 +351,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": "{{url}}/artists/{artist_id}",
 						"description": "Get an artist\n\n[https://www.discogs.com/developers/#page:database,header:database-artist](https://www.discogs.com/developers/#page:database,header:database-artist)"
 					},
@@ -385,9 +358,6 @@
 				},
 				{
 					"name": "Artist releases",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -403,7 +373,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/artists/21262/releases?sort={sort}&sort_order={sort_order}",
 							"host": [
@@ -431,9 +400,6 @@
 				},
 				{
 					"name": "Label",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -449,7 +415,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": "{{url}}/labels/{label_id}",
 						"description": "Get a label\n\n[https://www.discogs.com/developers/#page:database,header:database-label](https://www.discogs.com/developers/#page:database,header:database-label)"
 					},
@@ -457,9 +422,6 @@
 				},
 				{
 					"name": "All label releases",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -475,7 +437,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/labels/{label_id}/releases?page={page}&per_page={per_page}",
 							"host": [
@@ -503,9 +464,6 @@
 				},
 				{
 					"name": "Search",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -521,7 +479,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/database/search?query={page}&type={type}",
 							"host": [
@@ -569,16 +526,14 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Marketplace",
 			"item": [
 				{
 					"name": "Inventory",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -594,15 +549,14 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
-							"raw": "{{url}}/users/{username}/inventory?string={status}&sort={sort}&sort_order={sort_order}",
+							"raw": "{{url}}/users/{{username}}/inventory?string={status}&sort={sort}&sort_order={sort_order}",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"{username}",
+								"{{username}}",
 								"inventory"
 							],
 							"query": [
@@ -626,9 +580,6 @@
 				},
 				{
 					"name": "Listing",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -644,7 +595,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/marketplace/listings/{listing_id}?curr_abbr={curr_abbr}",
 							"host": [
@@ -683,7 +633,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/marketplace/listings/{listing_id}?release_id={release_id}&condition={condition}&sleeve_condition={sleeve_condition}&price={price}&comments={comments}&allow_offers={allow_offers}&status={status}&external_id={external_id}&location={location}&weight={weight}&format_quantity={format_quantity}",
 							"host": [
@@ -773,7 +722,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/marketplace/listings/{listing_id}?curr_abbr={curr_abbr}",
 							"host": [
@@ -812,7 +760,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/marketplace/listings?release_id={release_id}&condition={condition}&sleeve_condition={sleeve_condition}&price={price}&comments={comments}&allow_offers={allow_offers}&status={status}&external_id={external_id}&location={location}&weight={weight}&format_quantity={format_quantity}",
 							"host": [
@@ -886,9 +833,6 @@
 				},
 				{
 					"name": "Order",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -904,7 +848,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": "{{url}}/marketplace/orders/{order_id}",
 						"description": "View the data associated with a listing.\nIf the authorized user is the listing owner the listing will include the weight, format_quantity, external_id, and location keys. If the user is authorized, the listing will contain a in_cart boolean field indicating whether or not this listing is in their cart.\n\n[https://www.discogs.com/developers/#page:marketplace,header:marketplace-listing](https://www.discogs.com/developers/#page:marketplace,header:marketplace-listing)"
 					},
@@ -927,7 +870,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/marketplace/orders/{order_id}?status={status}&shipping={shipping}",
 							"host": [
@@ -957,9 +899,6 @@
 				},
 				{
 					"name": "List orders",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -975,7 +914,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/marketplace/orders?status={status}&sort={sort}&sort_order={sort_order}",
 							"host": [
@@ -1009,9 +947,6 @@
 				},
 				{
 					"name": "List order messages",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1027,7 +962,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": "{{url}}/marketplace/orders/{order_id}/messages",
 						"description": "Returns a list of the order’s messages with the most recent first. Accepts Pagination parameters.\nAuthentication as the seller is required.\n\n[https://www.discogs.com/developers/#page:marketplace,header:marketplace-list-order-messages](https://www.discogs.com/developers/#page:marketplace,header:marketplace-list-order-messages)"
 					},
@@ -1050,7 +984,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "{{url}}/marketplace/orders/{order_id}/messages?message={message}&status={status}",
 							"host": [
@@ -1079,9 +1012,6 @@
 				},
 				{
 					"name": "Fee",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1097,7 +1027,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": "{{url}}/marketplace/fee/{price}",
 						"description": "The Fee resource allows you to quickly calculate the fee for selling an item on the Marketplace.\n\n[https://www.discogs.com/developers/#page:marketplace,header:marketplace-fee](https://www.discogs.com/developers/#page:marketplace,header:marketplace-fee\n)"
 					},
@@ -1105,9 +1034,6 @@
 				},
 				{
 					"name": "Fee with currency",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1123,7 +1049,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": "{{url}}/marketplace/fee/{price}/{currency}",
 						"description": "The Fee resource allows you to quickly calculate the fee for selling an item on the Marketplace given a particular currency.\n\n[https://www.discogs.com/developers/#page:marketplace,header:marketplace-fee-with-currency](https://www.discogs.com/developers/#page:marketplace,header:marketplace-fee-with-currency)"
 					},
@@ -1131,9 +1056,6 @@
 				},
 				{
 					"name": "Price suggestions",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1149,7 +1071,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {},
 						"url": "{{url}}/marketplace/price_suggestions/{release_id}",
 						"description": "Retrieve price suggestions for the provided Release ID. If no suggestions are available, an empty object will be returned.\nAuthentication is required, and the user needs to have filled out their seller settings. Suggested prices will be denominated in the user’s selling currency.\n\n[https://www.discogs.com/developers/#page:marketplace,header:marketplace-price-suggestions](https://www.discogs.com/developers/#page:marketplace,header:marketplace-price-suggestions)"
 					},
@@ -1178,7 +1099,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Inventory Export",
@@ -1248,10 +1170,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": "{{url}}/inventory/export",
 						"description": "Get a list of all recent exports of your inventory. Accepts Pagination parameters.\n\n[https://www.discogs.com/developers/#page:inventory-export,header:inventory-export-get-recent-exports](https://www.discogs.com/developers/#page:inventory-export,header:inventory-export-get-recent-exports)"
 					},
@@ -1285,10 +1203,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": "{{url}}/inventory/export/{id}",
 						"description": "Get details about the status of an inventory export.\n\n[https://www.discogs.com/developers/#page:inventory-export,header:inventory-export-get-an-export](https://www.discogs.com/developers/#page:inventory-export,header:inventory-export-get-an-export)"
 					},
@@ -1322,10 +1236,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": "{{url}}/inventory/export/{id}/download",
 						"description": "Download the results of an inventory export.\n\n[https://www.discogs.com/developers/#page:inventory-export,header:inventory-export-download-an-export](https://www.discogs.com/developers/#page:inventory-export,header:inventory-export-download-an-export)"
 					},
@@ -1354,7 +1264,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Inventory Upload",
@@ -1498,10 +1409,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": "{{url}}/inventory/upload",
 						"description": "Get a list of all recent inventory uploads. Accepts Pagination parameters.\n\n[https://www.discogs.com/developers/#page:inventory-upload,header:inventory-upload-get-recent-uploads](https://www.discogs.com/developers/#page:inventory-upload,header:inventory-upload-get-recent-uploads)"
 					},
@@ -1535,10 +1442,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": "{{url}}/inventory/upload/{id}",
 						"description": "Get details about the status of an inventory upload.\n\n[https://www.discogs.com/developers/#page:inventory-upload,header:inventory-upload-get-an-upload](https://www.discogs.com/developers/#page:inventory-upload,header:inventory-upload-get-an-upload)"
 					},
@@ -1567,7 +1470,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "User identity",
@@ -1600,10 +1504,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": "{{url}}/oauth/identity",
 						"description": "Retrieve basic information about the authenticated user.\nYou can use this resource to find out who you’re authenticated as, and it also doubles as a good sanity check to ensure that you’re using OAuth correctly.\nFor more detailed information, make another request for the user’s Profile.\n\n[https://www.discogs.com/developers/#page:user-identity,header:user-identity-identity](https://www.discogs.com/developers/#page:user-identity,header:user-identity-identity)"
 					},
@@ -1637,11 +1537,7 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": "{{url}}/users/{username}",
+						"url": "{{url}}/users/{{username}}",
 						"description": "Retrieve a user by username.\n\nIf authenticated as the requested user, the email key will be visible, and the num_list count will include the user’s private lists.\n\nIf authenticated as the requested user or the user’s collection/wantlist is public, the num_collection / num_wantlist keys will be visible.\n\n[https://www.discogs.com/developers/#page:user-identity,header:user-identity-profile](https://www.discogs.com/developers/#page:user-identity,header:user-identity-profile)"
 					},
 					"response": []
@@ -1679,7 +1575,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"url": "{{url}}/users/{username}",
+						"url": "{{url}}/users/{{username}}",
 						"description": "Edit a user’s profile data. Authentication as the user is required. Parameters must be filled in a json object inside the body. \n\n[https://www.discogs.com/developers/#page:user-identity,header:user-identity-profile](https://www.discogs.com/developers/#page:user-identity,header:user-identity-profile)"
 					},
 					"response": []
@@ -1712,11 +1608,7 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": "{{url}}/users/{username}/submissions",
+						"url": "{{url}}/users/{{username}}/submissions",
 						"description": "Retrieve a user’s submissions by username. Accepts Pagination parameters.\n\n[https://www.discogs.com/developers/#page:user-identity,header:user-identity-user-submissions](https://www.discogs.com/developers/#page:user-identity,header:user-identity-user-submissions)"
 					},
 					"response": []
@@ -1749,11 +1641,7 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": "{{url}}/users/{username}/contributions",
+						"url": "{{url}}/users/{{username}}/contributions",
 						"description": "Retrieve a user’s contributions by username. Accepts Pagination parameters. The Contributions resource represents releases, labels, and artists submitted by a user. \n\n[https://www.discogs.com/developers/#page:user-identity,header:user-identity-user-contributions](https://www.discogs.com/developers/#page:user-identity,header:user-identity-user-contributions)"
 					},
 					"response": []
@@ -1781,7 +1669,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "User Collection",
@@ -1814,11 +1703,7 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": "{{url}}/users/{username}/collection/folders",
+						"url": "{{url}}/users/{{username}}/collection/folders",
 						"description": "Retrieve a list of folders in a user’s collection. If the collection has been made private by its owner, authentication as the collection owner is required. If you are not authenticated as the collection owner, only folder ID 0 (the “All” folder) will be visible (if the requested user’s collection is public).\n\n[https://www.discogs.com/developers/#page:user-collection,header:user-collection-collection](https://www.discogs.com/developers/#page:user-collection,header:user-collection-collection)"
 					},
 					"response": []
@@ -1856,7 +1741,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"url": "{{url}}/users/{username}/collection/folders",
+						"url": "{{url}}/users/{{username}}/collection/folders",
 						"description": "Retrieve a list of folders in a user’s collection. If the collection has been made private by its owner, authentication as the collection owner is required. If you are not authenticated as the collection owner, only folder ID 0 (the “All” folder) will be visible (if the requested user’s collection is public).\n\n[https://www.discogs.com/developers/#page:user-collection,header:user-collection-collection](https://www.discogs.com/developers/#page:user-collection,header:user-collection-collection)"
 					},
 					"response": []
@@ -1889,11 +1774,7 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": "{{url}}/users/{username}/collection/folders/{folder_id}",
+						"url": "{{url}}/users/{{username}}/collection/folders/{folder_id}",
 						"description": "Retrieve metadata about a folder in a user’s collection. If folder_id is not 0, authentication as the collection owner is required.\n\n[https://www.discogs.com/developers/#page:user-collection,header:user-collection-collection-folder](https://www.discogs.com/developers/#page:user-collection,header:user-collection-collection-folder)"
 					},
 					"response": []
@@ -1930,7 +1811,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"url": "{{url}}/users/{username}/collection/folders/{folder_id}",
+						"url": "{{url}}/users/{{username}}/collection/folders/{folder_id}",
 						"description": "Edit a folder’s metadata. Folders 0 and 1 cannot be renamed. Authentication as the collection owner is required.\n\n[https://www.discogs.com/developers/#page:user-collection,header:user-collection-collection-folder](https://www.discogs.com/developers/#page:user-collection,header:user-collection-collection-folder)"
 					},
 					"response": []
@@ -1967,7 +1848,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"url": "{{url}}/users/{username}/collection/folders/{folder_id}",
+						"url": "{{url}}/users/{{username}}/collection/folders/{folder_id}",
 						"description": "Delete a folder from a user’s collection. A folder must be empty before it can be deleted. Authentication as the collection owner is required.\n\n[https://www.discogs.com/developers/#page:user-collection,header:user-collection-collection-folder](https://www.discogs.com/developers/#page:user-collection,header:user-collection-collection-folder)"
 					},
 					"response": []
@@ -2000,11 +1881,7 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": "{{url}}/users/{username}/collection/releases/{release_id}",
+						"url": "{{url}}/users/{{username}}/collection/releases/{release_id}",
 						"description": "View the user’s collection folders which contain a specified release. This will also show information about each release instance. The release_id must be non-zero.\n\nAuthentication as the collection owner is required if the owner’s collection is private.\n\n[https://www.discogs.com/developers/#page:user-collection,header:user-collection-collection-items-by-release](https://www.discogs.com/developers/#page:user-collection,header:user-collection-collection-items-by-release)"
 					},
 					"response": []
@@ -2037,18 +1914,14 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
-							"raw": "{{url}}/users/{username}/collection/folders/{folder_id}/releases?sort={sort}&sort_order={sort_order}",
+							"raw": "{{url}}/users/{{username}}/collection/folders/{folder_id}/releases?sort={sort}&sort_order={sort_order}",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"{username}",
+								"{{username}}",
 								"collection",
 								"folders",
 								"{folder_id}",
@@ -2103,7 +1976,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"url": "{{url}}/users/{username}/collection/folders/{folder_id}/releases/{release_id}",
+						"url": "{{url}}/users/{{username}}/collection/folders/{folder_id}/releases/{release_id}",
 						"description": "Add a release to a folder in a user’s collection.\n\nThe folder_id must be non-zero – you can use 1 for “Uncategorized”.\n\nAuthentication as the collection owner is required.\n\n[https://www.discogs.com/developers/#page:user-collection,header:user-collection-add-to-collection-folder](https://www.discogs.com/developers/#page:user-collection,header:user-collection-add-to-collection-folder)"
 					},
 					"response": []
@@ -2140,7 +2013,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"url": "{{url}}/users/{username}/collection/folders/{folder_id}/releases/{release_id}/instances/{instance_id}",
+						"url": "{{url}}/users/{{username}}/collection/folders/{folder_id}/releases/{release_id}/instances/{instance_id}",
 						"description": "Change the rating on a release and/or move the instance to another folder.\n\nThis endpoint potentially takes 2 folder_id parameters: one in the URL (which is the folder you are requesting, and is required), and one in the request body (representing the folder you want to move the instance to, which is optional)\n\nAuthentication as the collection owner is required.\n\n[https://www.discogs.com/developers/#page:user-collection,header:user-collection-change-rating-of-release](https://www.discogs.com/developers/#page:user-collection,header:user-collection-change-rating-of-release)"
 					},
 					"response": []
@@ -2177,7 +2050,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"url": "{{url}}/users/{username}/collection/folders/{folder_id}/releases/{release_id}/instances/{instance_id}",
+						"url": "{{url}}/users/{{username}}/collection/folders/{folder_id}/releases/{release_id}/instances/{instance_id}",
 						"description": "Remove an instance of a release from a user’s collection folder.\n\nTo move the release to the “Uncategorized” folder instead, use the POST method.\n\nAuthentication as the collection owner is required.\n\n[https://www.discogs.com/developers/#page:user-collection,header:user-collection-delete-instance-from-folder](https://www.discogs.com/developers/#page:user-collection,header:user-collection-delete-instance-from-folder)"
 					},
 					"response": []
@@ -2210,11 +2083,7 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": "{{url}}/users/{username}/collection/folders/{folder_id}",
+						"url": "{{url}}/users/{{username}}/collection/folders/{folder_id}",
 						"description": "Retrieve a list of user-defined collection notes fields. These fields are available on every release in the collection.\n\nIf the collection has been made private by its owner, authentication as the collection owner is required.\n\nIf you are not authenticated as the collection owner, only fields with public set to true will be visible.\n\n[https://www.discogs.com/developers/#page:user-collection,header:user-collection-list-custom-fields](https://www.discogs.com/developers/#page:user-collection,header:user-collection-list-custom-fields)"
 					},
 					"response": []
@@ -2252,13 +2121,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/users/{username}/collection/folders/{folder_id}/releases/{release_id}/instances/{instance_id}/fields/{field_id}{?value}",
+							"raw": "{{url}}/users/{{username}}/collection/folders/{folder_id}/releases/{release_id}/instances/{instance_id}/fields/{field_id}{?value}",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"users",
-								"{username}",
+								"{{username}}",
 								"collection",
 								"folders",
 								"{folder_id}",
@@ -2308,11 +2177,7 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": "{{url}}/users/{username}/collection/value",
+						"url": "{{url}}/users/{{username}}/collection/value",
 						"description": "Returns the minimum, median, and maximum value of a user’s collection.\n\nAuthentication as the collection owner is required.\n\n[https://www.discogs.com/developers/#page:user-collection,header:user-collection-collection-value](https://www.discogs.com/developers/#page:user-collection,header:user-collection-collection-value)"
 					},
 					"response": []
@@ -2340,7 +2205,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "User Wantlist",
@@ -2373,11 +2239,7 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": "{{url}}/users/{username}/wants",
+						"url": "{{url}}/users/{{username}}/wants",
 						"description": "Returns the list of releases in a user’s wantlist. Accepts Pagination parameters.\n\nBasic information about each release is provided, suitable for display in a list. For detailed information, make another API call to fetch the corresponding release.\n\nIf the wantlist has been made private by its owner, you must be authenticated as the owner to view it.\n\nThe notes field will be visible if you are authenticated as the wantlist owner.\n\n[https://www.discogs.com/developers/#page:user-wantlist,header:user-wantlist-wantlist](https://www.discogs.com/developers/#page:user-wantlist,header:user-wantlist-wantlist)"
 					},
 					"response": []
@@ -2415,7 +2277,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"url": "{{url}}/users/{username}/wants/{release_id}",
+						"url": "{{url}}/users/{{username}}/wants/{release_id}",
 						"description": "Add a release to a user’s wantlist. Additional parameters must be send as JSON object inside the request body.\n\nAuthentication as the wantlist owner is required.\n\n[https://www.discogs.com/developers/#page:user-wantlist,header:user-wantlist-add-to-wantlist](https://www.discogs.com/developers/#page:user-wantlist,header:user-wantlist-add-to-wantlist)"
 					},
 					"response": []
@@ -2453,7 +2315,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"url": "{{url}}/users/{username}/wants/{release_id}",
+						"url": "{{url}}/users/{{username}}/wants/{release_id}",
 						"description": "Delete a release from a user’s wantlist.\n\nAuthentication as the wantlist owner is required.\n\n[https://www.discogs.com/developers/#page:user-wantlist,header:user-wantlist-add-to-wantlist](https://www.discogs.com/developers/#page:user-wantlist,header:user-wantlist-add-to-wantlist)"
 					},
 					"response": []
@@ -2481,7 +2343,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "User Lists",
@@ -2514,11 +2377,7 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": "{{url}}/users/{username}/lists",
+						"url": "{{url}}/users/{{username}}/lists",
 						"description": "Returns a User’s Lists. Private Lists will only display when authenticated as the owner. Accepts Pagination parameters.\n\n[https://www.discogs.com/developers/#page:user-lists,header:user-lists-user-lists](https://www.discogs.com/developers/#page:user-lists,header:user-lists-user-lists)"
 					},
 					"response": []
@@ -2551,10 +2410,6 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": "{{url}}/lists/{list_id}",
 						"description": "Returns items from a specified List. Private Lists will only display when authenticated as the owner.\n\n[https://www.discogs.com/developers/#page:user-lists,header:user-lists-list](https://www.discogs.com/developers/#page:user-lists,header:user-lists-list)"
 					},
@@ -2583,7 +2438,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"auth": {
@@ -2622,5 +2478,6 @@
 				]
 			}
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }

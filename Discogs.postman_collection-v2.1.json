@@ -453,13 +453,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/artists/21262/releases?sort={sort}&sort_order={sort_order}",
+							"raw": "{{url}}/artists/{artist_id}/releases?sort={sort}&sort_order={sort_order}",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"artists",
-								"21262",
+								"{artist_id}",
 								"releases"
 							],
 							"query": [

@@ -2083,7 +2083,7 @@
 								"value": "{{user_agent}}"
 							}
 						],
-						"url": "{{url}}/users/{{username}}/collection/folders/{folder_id}",
+						"url": "{{url}}/users/{{username}}/collection/fields",
 						"description": "Retrieve a list of user-defined collection notes fields. These fields are available on every release in the collection.\n\nIf the collection has been made private by its owner, authentication as the collection owner is required.\n\nIf you are not authenticated as the collection owner, only fields with public set to true will be visible.\n\n[https://www.discogs.com/developers/#page:user-collection,header:user-collection-list-custom-fields](https://www.discogs.com/developers/#page:user-collection,header:user-collection-list-custom-fields)"
 					},
 					"response": []

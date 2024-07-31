@@ -638,7 +638,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/users/{{username}}/inventory?string={status}&sort={sort}&sort_order={sort_order}",
+							"raw": "{{url}}/users/{{username}}/inventory?status={status}&sort={sort}&sort_order={sort_order}",
 							"host": [
 								"{{url}}"
 							],
@@ -649,7 +649,7 @@
 							],
 							"query": [
 								{
-									"key": "string",
+									"key": "status",
 									"value": "{status}"
 								},
 								{
